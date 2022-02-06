@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-md-4 col-12">
+      <h3 class="text-center">Sign Up</h3>
+      <mat-card>
+        <mat-card-content class="p-3">
+          <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
+            <div class="d-flex flex-column align-items-center">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Email</mat-label>
+                <input
+                  matInput
+                  type="email"
+                  placeholder="Enter your email"
+                  formControlName="email"
+                />
+                <mat-error *ngIf="signUpForm.controls['email'].invalid">
+                  <span
+                    *ngIf="signUpForm.controls['email'].errors?.['required']"
+                    >Email is required</span
+                  >
+                  <span *ngIf="signUpForm.controls['email'].errors?.['email']"
+                    >Email is not valid</span
+                  >
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Password</mat-label>
+                <input
+                  matInput
+                  type="password"
+                  placeholder="Enter your password"
+                  formControlName="password"
+                />
+                <mat-error *ngIf="signUpForm.controls['password'].invalid">
+                  <span
+                    >Password is required and should be at least 6 min
+                    long</span
+                  >
+                </mat-error>
+              </mat-form-field>
+
+              <div class="row justify-content-center">
+                <button type="submit" mat-flat-button color="primary">
+                  Sign Up
+                </button>
+              </div>
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-divider></mat-divider>
+      <div class="text-center my-3">
+        <p>Already have an account?</p>
+        <a mat-button target="_blank" routerLink="/login">Log In</a>
+      </div>
+    </div>
+  </div>
+</div>

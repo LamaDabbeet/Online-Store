@@ -1,0 +1,15 @@
+<ng-container *ngIf="recipe">
+  <div class="card">
+    <div class="card-body">
+      <img
+        *ngIf="recipe.image"
+        class="card-img-top"
+        [src]="recipe.image"
+        alt="{{ recipe.title }}"
+      />
+    </div>
+    <div class="card-footer">
+      <h5>{{ recipe.title }}</h5>
+    </div>
+  </div>
+</ng-container>

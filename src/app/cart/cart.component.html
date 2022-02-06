@@ -1,0 +1,19 @@
+<ng-container *ngIf="cartItems$ | async as cartItems">
+  <div *ngFor="let item of cartItems">
+    <app-cart-item-card [cartItem]="item"></app-cart-item-card>
+  </div>
+</ng-container>
+<ng-container *ngIf="(cartItems$ | async)?.length !== 0">
+  <div class="row justify-content-center">
+    <div class="col-md-3 col-6">
+      <button [routerLink]="['/checkout']" mat-flat-button color="primary">
+        Checkout
+      </button>
+    </div>
+  </div></ng-container
+>
+<ng-container *ngIf="(cartItems$ | async)?.length === 0">
+  <div class="h-auto d-flex justify-content-center align-items-center">
+    <p>Shopping cart is empty</p>
+  </div>
+</ng-container>

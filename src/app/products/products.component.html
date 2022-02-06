@@ -1,0 +1,41 @@
+<form [formGroup]="searchProductForm" (ngSubmit)="getProducts()">
+  <div class="row">
+    <div class="col-md-6 col-12">
+      <div class="form-group">
+        <mat-form-field appearance="outline" class="w-75">
+          <mat-label>Type product name</mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Enter product name"
+            formControlName="productName"
+          />
+        </mat-form-field>
+        <button
+          mat-flat-button
+          color="primary"
+          type="submit"
+          class="ms-3"
+          [disabled]="!searchProductForm.valid"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="products.length > 0; else noProductsBlock">
+    <div class="row">
+      <ng-container *ngFor="let product of products">
+        <div class="col-6 col-md-3">
+          <app-product-card
+            style="height: 5rem"
+            [originalName]="searchProductForm.value.productName"
+            [product]="product"
+          ></app-product-card>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <ng-template #noProductsBlock> No Products!</ng-template>
+</form>

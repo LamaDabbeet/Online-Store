@@ -1,0 +1,14 @@
+<app-checkout-summary></app-checkout-summary>
+
+<div class="row justify-content-center">
+  <p>Check what you can make from what you have ordered now :)</p>
+</div>
+<ng-container *ngIf="recipes">
+  <div class="row">
+    <ng-container *ngFor="let recipe of recipes">
+      <div class="col-6 col-md-3">
+        <app-recipe-card [recipe]="recipe"></app-recipe-card>
+      </div>
+    </ng-container>
+  </div>
+</ng-container>

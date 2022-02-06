@@ -1,0 +1,40 @@
+<ng-container *ngIf="product">
+  <mat-card class="mb-5">
+    <mat-card-content>
+      <a [routerLink]="['/products', product.id]">
+        <div
+          class="d-flex justify-content-center flex-column align-items-center"
+        >
+          <img
+            style="height: 12rem; width: 10rem"
+            *ngIf="product.image"
+            class="card-img-top"
+            [src]="product.image"
+            alt="{{ product.title }}"
+          />
+          <div class="card-body">
+            <h4 class="card-title text-muted">{{ product.title }}</h4>
+          </div>
+        </div>
+      </a>
+    </mat-card-content>
+    <mat-card-footer class="mb-0 me-0" align="center">
+      <button
+        *ngIf="!added"
+        (click)="addToCart()"
+        mat-flat-button
+        color="primary"
+      >
+        Add to Cart
+      </button>
+      <button
+        *ngIf="added"
+        (click)="removeProduct()"
+        mat-flat-button
+        color="accent"
+      >
+        Remove
+      </button>
+    </mat-card-footer>
+  </mat-card>
+</ng-container>

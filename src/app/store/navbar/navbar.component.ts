@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AuthService } from '../services/auth.service';
-import { CartService } from '../services/cart.service';
+import { AuthService } from '../../services/auth.service';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-navbar',
@@ -14,7 +15,8 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private cartService: CartService
+    private cartService: CartService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -22,6 +24,9 @@ export class NavbarComponent implements OnInit {
     this.subTotal$ = this.cartService.getSubTotal();
   }
   logOut() {
-    this.authService.SignOut();
+    this.authService
+      .signOut()
+      .then(() => this.router.navigate(['/']))
+      .catch((e) => console.log(e.message));
   }
 }

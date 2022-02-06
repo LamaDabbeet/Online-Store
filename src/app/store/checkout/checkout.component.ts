@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { EMPTY, Subscription, switchMap } from 'rxjs';
-import { Recipe } from '../models/recipe';
-import { CartService } from '../services/cart.service';
-import { RecipesService } from '../services/recipes.service';
+import { Recipe } from '../../models/recipe';
+import { CartService } from '../../services/cart.service';
+import { RecipesService } from '../../services/recipes.service';
 
 @Component({
   selector: 'app-checkout',

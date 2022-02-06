@@ -10,6 +10,6 @@ export const environment = {
     measurementId: 'G-SSETZNMH0K',
   },
   spoonacular: {
-    apiKey: 'f45a3dd2f3aa4e61ab9517eec4e35689',
+    apiKey: '559a28d5034c4aa5b56aa81ecb540680',
   },
 };

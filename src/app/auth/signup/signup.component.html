@@ -1,11 +1,13 @@
-<div class="container">
-  <div class="row justify-content-center align-items-center">
+<div class="container h-100">
+  <div class="row justify-content-center align-items-center h-100">
     <div class="col-md-4 col-12">
-      <h3 class="text-center">Login</h3>
+      <h3 class="text-center">Sign Up</h3>
       <mat-card>
-        <mat-card-content class="p-3">
-          <form [formGroup]="loginForm" (ngSubmit)="login()">
-            <div class="d-flex flex-column align-items-center">
+        <mat-card-content class="p-3 h-100">
+          <form [formGroup]="signUpForm" (ngSubmit)="signUp()" class="h-100">
+            <div
+              class="h-100 d-flex flex-column justify-content-center align-items-center"
+            >
               <mat-form-field appearance="outline" class="w-100">
                 <mat-label>Email</mat-label>
                 <input
@@ -14,11 +16,12 @@
                   placeholder="Enter your email"
                   formControlName="email"
                 />
-                <mat-error *ngIf="loginForm.controls['email'].invalid">
-                  <span *ngIf="loginForm.controls['email'].errors?.['required']"
+                <mat-error *ngIf="signUpForm.controls['email'].invalid">
+                  <span
+                    *ngIf="signUpForm.controls['email'].errors?.['required']"
                     >Email is required</span
                   >
-                  <span *ngIf="loginForm.controls['email'].errors?.['email']"
+                  <span *ngIf="signUpForm.controls['email'].errors?.['email']"
                     >Email is not valid</span
                   >
                 </mat-error>
@@ -31,7 +34,7 @@
                   placeholder="Enter your password"
                   formControlName="password"
                 />
-                <mat-error *ngIf="loginForm.controls['password'].invalid">
+                <mat-error *ngIf="signUpForm.controls['password'].invalid">
                   <span
                     >Password is required and should be at least 6 min
                     long</span
@@ -41,7 +44,7 @@
 
               <div class="row justify-content-center">
                 <button type="submit" mat-flat-button color="primary">
-                  Login
+                  Sign Up
                 </button>
               </div>
             </div>
@@ -49,10 +52,10 @@
         </mat-card-content>
       </mat-card>
 
-      <div class="text-center my-3">Or</div>
+      <mat-divider></mat-divider>
       <div class="text-center my-3">
-        <p>Don't have an account yet?</p>
-        <a class="text-primary login-link" routerLink="/sign-up"> Sign Up </a>
+        <p>Already have an account?</p>
+        <a mat-button target="_blank" routerLink="/login">Log In</a>
       </div>
     </div>
   </div>
